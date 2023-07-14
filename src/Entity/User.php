@@ -25,6 +25,7 @@ class User
     private ?bool $agreement = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
+    #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false)]
     private ?Education $education = null;
 
     public function getSurname(): ?string
