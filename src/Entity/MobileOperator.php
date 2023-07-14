@@ -11,6 +11,7 @@ class MobileOperator
     use Traits\IdTrait;
     use Traits\SlugTrait;
     use Traits\NameTrait;
+    use Traits\ScoreTrait;
 
     #[ORM\Column(length: 2)]
     private ?string $code = null;

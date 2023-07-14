@@ -10,6 +10,7 @@ class User
 {
     use Traits\IdTrait;
     use Traits\NameTrait;
+    use Traits\ScoreTrait;
 
     #[ORM\Column(length: 255)]
     private ?string $surname = null;
@@ -22,9 +23,6 @@ class User
 
     #[ORM\Column]
     private ?bool $agreement = null;
-
-    #[ORM\Column]
-    private ?int $score = null;
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     private ?Education $education = null;
@@ -73,18 +71,6 @@ class User
     public function setAgreement(bool $agreement): self
     {
         $this->agreement = $agreement;
-
-        return $this;
-    }
-
-    public function getScore(): ?int
-    {
-        return $this->score;
-    }
-
-    public function setScore(int $score): self
-    {
-        $this->score = $score;
 
         return $this;
     }

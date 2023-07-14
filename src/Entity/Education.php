@@ -13,6 +13,7 @@ class Education
     use Traits\IdTrait;
     use Traits\SlugTrait;
     use Traits\NameTrait;
+    use Traits\ScoreTrait;
 
     #[ORM\OneToMany(mappedBy: 'education', targetEntity: User::class)]
     private Collection $users;
