@@ -28,6 +28,16 @@ class ScoreService
         ;
     }
 
+    public function getDetail(User $user): array
+    {
+        return [
+            'Agreement'       => $this->getAgreementScore($user),
+            'Email Domain'    => $this->getEmailDomainScore($user),
+            'Mobile Operator' => $this->getMobileOperatorScore($user),
+            'Education'       => $this->getEducationScore($user),
+        ];
+    }
+
     private function getAgreementScore(User $user): int
     {
         return $user->isAgreement() ? User::AGREEMENT_SCORE : 0;
