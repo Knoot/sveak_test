@@ -12,6 +12,8 @@ class User
     use Traits\NameTrait;
     use Traits\ScoreTrait;
 
+    const AGREEMENT_SCORE = 4; //bad way
+
     #[ORM\Column(length: 255)]
     private ?string $surname = null;
 
@@ -86,5 +88,17 @@ class User
         $this->education = $education;
 
         return $this;
+    }
+
+    public function getEmailDomain(): string
+    {
+        $domain = substr($this->email, strpos($this->email, '@') + 1);
+
+        return substr($domain, 0, strrpos($domain, '.') ?: null);
+    }
+
+    public function getMobileOperatorCode(): string
+    {
+        return substr($this->phone, 0, 2);
     }
 }

@@ -9,9 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 class MobileOperator
 {
     use Traits\IdTrait;
-    use Traits\SlugTrait;
     use Traits\NameTrait;
     use Traits\ScoreTrait;
+
+    const DEFAULT_SCORE = 1; //bad way
 
     #[ORM\Column(length: 2)]
     private ?string $code = null;

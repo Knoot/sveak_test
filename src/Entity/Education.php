@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Education
 {
     use Traits\IdTrait;
-    use Traits\SlugTrait;
     use Traits\NameTrait;
     use Traits\ScoreTrait;
 
@@ -31,7 +30,7 @@ class Education
         return $this->users;
     }
 
-    public function addUser(User $user): static
+    public function addUser(User $user): self
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
@@ -41,7 +40,7 @@ class Education
         return $this;
     }
 
-    public function removeUser(User $user): static
+    public function removeUser(User $user): self
     {
         if ($this->users->removeElement($user)) {
             // set the owning side to null (unless already changed)

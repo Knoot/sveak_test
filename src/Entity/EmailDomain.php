@@ -11,4 +11,6 @@ class EmailDomain
     use Traits\IdTrait;
     use Traits\NameTrait;
     use Traits\ScoreTrait;
+
+    const DEFAULT_SCORE = 3; //bad way
 }
