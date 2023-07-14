@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class User
@@ -14,12 +15,15 @@ class User
 
     const AGREEMENT_SCORE = 4; //bad way
 
+    #[Assert\NotBlank]
     #[ORM\Column(length: 255)]
     private ?string $surname = null;
 
+    #[Assert\Length(exactly: 9)]
     #[ORM\Column(length: 9)]
     private ?string $phone = null;
 
+    #[Assert\Email]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
@@ -100,5 +104,10 @@ class User
     public function getMobileOperatorCode(): string
     {
         return substr($this->phone, 0, 2);
+    }
+
+    public function getFullPhone(): string
+    {
+        return '+79' . $this->phone;
     }
 }
