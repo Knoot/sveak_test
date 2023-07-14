@@ -14,7 +14,7 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $surname = null;
 
-    #[ORM\Column(length: 10)]
+    #[ORM\Column(length: 9)]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255)]

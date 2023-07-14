@@ -12,7 +12,7 @@ class MobileOperator
     use Traits\SlugTrait;
     use Traits\NameTrait;
 
-    #[ORM\Column(length: 3)]
+    #[ORM\Column(length: 2)]
     private ?string $code = null;
 
     public function getCode(): ?string
