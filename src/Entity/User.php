@@ -96,18 +96,18 @@ class User
 
     public function getEmailDomain(): string
     {
-        $domain = substr($this->email, strpos($this->email, '@') + 1);
+        $domain = substr($this->email ?? '', strpos($this->email ?? '', '@') + 1);
 
         return substr($domain, 0, strrpos($domain, '.') ?: null);
     }
 
     public function getMobileOperatorCode(): string
     {
-        return substr($this->phone, 0, 2);
+        return substr($this->phone ?? '', 0, 2);
     }
 
     public function getFullPhone(): string
     {
-        return '+79' . $this->phone;
+        return '+79' . $this->phone ?? '';
     }
 }
